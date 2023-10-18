@@ -1,0 +1,35 @@
+version: "3"
+
+services:
+  app:
+    build: .
+    command: npm start
+    ports:
+      - "3019:3000"
+    volumes:
+      - .:/usr/app
+      - /user/app/node_modules
+    depends_on:
+      - "mysql"
+    networks:
+      - backend
+
+  mysql:
+    container_name: "data-node"
+    image: mysql:5.7.31
+    command: --default-authentication-plugin=mysql_native_password --sql_mode=NO_ENGINE_SUBSTITUTION,NO_AUTO_CREATE_USER --explicit_defaults_for_timestamp
+    restart: always
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql # Liên kết tệp SQL vào container MySQL
+    ports:
+      - "3319:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=users_data
+      
+    networks:
+      - backend
+  
+networks:
+  backend:
+    driver: bridge
