@@ -1,0 +1,7 @@
+version: '3'
+services:
+  spring-app:
+    build:
+      context: C:/Users/Admin/IdeaProjects/cart-service # Thay thế bằng đường dẫn đến mã nguồn Spring Boot
+    ports:
+      - "8080:8080"
