@@ -1,0 +1,51 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: microservices
+
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-service-deployment
+  namespace: microservices
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: my-service
+  template:
+    metadata:
+      labels:
+        app: my-service
+    spec:
+      containers:
+        - name: my-service
+          image: your-registry/my-service:latest
+          ports:
+            - containerPort: 80
+          env:
+            - name: RABBITMQ_HOST
+              value: rabbitmq
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: my-service-service
+  namespace: microservices
+spec:
+  selector:
+    app: my-service
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: my-service-config
+  namespace: microservices
+data:
