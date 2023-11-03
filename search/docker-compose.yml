@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  laravel-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: search
+    container_name: search
+    restart: unless-stopped
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "8080:3000"
+    networks:
+      - backend
+    depends_on:
+      - mysql
+
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    restart: unless-stopped
+    environment:
+      MYSQL_DATABASE: elaravel
+      MYSQL_USER: root
+      MYSQL_PASSWORD: 
+      MYSQL_ROOT_PASSWORD:
+    ports:
+      - "4306:4306" 
+    networks:
+      - backend
+
+networks:
+  backend:
+    driver: bridge
