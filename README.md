@@ -1,4 +1,4 @@
-# How to run the microservices throgh API Gateway
+# How to run the microservices through API Gateway
 
 ## products microservice with MySQL
 
@@ -27,5 +27,5 @@ npm start
 http://localhost:3007/orders
 http://localhost:3007/products
 ```
-SYSTEM MICROSERVICES
 
+SYSTEM MICROSERVICES
