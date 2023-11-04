@@ -1,0 +1,26 @@
+version: '3.3'
+
+services:
+  flask_app:
+    build: .
+    ports:
+      - 3517:3517
+    environment:
+      DATABASE_URL: postgres://admin:abc@db:5432/userdata
+    depends_on:
+      - db
+    networks:
+      - my_network
+
+  db:
+    image: postgres:13
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: abc
+      POSTGRES_DB: userdata
+    networks:
+      - my_network
+
+networks:
+  my_network:
+  
