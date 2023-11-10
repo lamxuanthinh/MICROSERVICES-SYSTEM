@@ -7,21 +7,21 @@ metadata:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-service-deployment
+  name: microservices-deployment
   namespace: microservices
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: my-service
+      app: microservices
   template:
     metadata:
       labels:
-        app: my-service
+        app: microservices
     spec:
       containers:
-        - name: my-service
-          image: your-registry/my-service:latest
+        - name: microservices
+          image: your-registry/microservices:latest
           ports:
             - containerPort: 80
           env:
@@ -32,11 +32,11 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: my-service-service
+  name: microservices-service
   namespace: microservices
 spec:
   selector:
-    app: my-service
+    app: microservices
   ports:
     - protocol: TCP
       port: 80
@@ -46,6 +46,6 @@ spec:
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: my-service-config
+  name: microservices-config
   namespace: microservices
 data:

@@ -12,7 +12,7 @@ services:
       - ./html:/var/www/html
 
   db:
-    image: mysql:5.7
+    image: mysql
     environment:
       MYSQL_ROOT_PASSWORD: ""
       MYSQL_DATABASE: search
