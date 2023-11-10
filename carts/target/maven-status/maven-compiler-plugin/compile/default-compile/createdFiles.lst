@@ -1,5 +1,1 @@
-com\java\microservices\limitsservice\Product.class
-com\java\microservices\limitsservice\CartController.class
-com\java\microservices\limitsservice\Cart.class
-com\java\microservices\limitsservice\CartItem.class
-com\java\microservices\limitsservice\CartApplication.class
+com\example\carts\CartsApplication.class
