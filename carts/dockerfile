@@ -1,5 +1,5 @@
 FROM openjdk:17
+WORKDIR /app
+COPY target/*.jar /app/app.jar
 EXPOSE 8080
-ARG JAR_FILE=target/cart-service-0.0.1-SNAPSHOT.jar
-ADD ${JAR_FILE} app.jar
-ENTRYPOINT ["java","-jar","/app.jar"]
+CMD ["java", "-jar", "app.jar"]
