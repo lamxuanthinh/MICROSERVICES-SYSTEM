@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.java.microservices.limitsservice.LimitsServiceApplicationTests
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 6.673 s - in com.java.microservices.limitsservice.LimitsServiceApplicationTests
