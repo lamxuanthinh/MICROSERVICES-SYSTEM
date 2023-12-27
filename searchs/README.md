@@ -1,6 +1,6 @@
 search microservice with MySQL
-cd /search
+cd /searchs
 docker-compose up
 
 Using API Gateway on browser
-http://localhost:8080/search_php/index.php
+http://localhost:8080/searchs/index.php
